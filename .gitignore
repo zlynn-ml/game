@@ -1,0 +1,26 @@
+# Скомпилированные файлы и исполняемые программы C++
+*.exe
+*.out
+*.o
+*.obj
+*.app
+
+# Папки сборки (если будете использовать CMake или Visual Studio)
+build/
+bin/
+obj/
+
+# Специфичные файлы настроек Visual Studio / VS Code
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+x64/
+Debug/
+Release/
+
+# Системные файлы
+.DS_Store
+Thumbs.db
