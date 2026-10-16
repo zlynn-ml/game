@@ -1,26 +1,23 @@
-# Скомпилированные файлы и исполняемые программы C++
+# Скомпилированные файлы твоей игры
 *.exe
 *.out
+*.app
 *.o
 *.obj
-*.app
 
-# Папки сборки (если будете использовать CMake или Visual Studio)
-build/
-bin/
-obj/
-
-# Специфичные файлы настроек Visual Studio / VS Code
-.vscode/
-.idea/
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-x64/
+# Папки кэша и сборки Visual Studio (их нельзя пушить)
+.vs/
 Debug/
 Release/
+x64/
+x86/
 
-# Системные файлы
+# Логи и настройки среды разработки
+*.log
+.vscode/
+.idea/
+
+# Системный мусор
 .DS_Store
 Thumbs.db
+
