@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <cstdlib>
+#include <windows.h>
 
 using namespace std;
 
@@ -47,44 +48,62 @@ inline int win[15][15]{
 	{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 };
 
-inline void draw_map(int game_map[15][15]) {//функция для вывода игрового поля
-	system("cls");
-	cout << "\n\n\n\n\n\n";
-	for (int i = 0; i < 15; i++) {
-		cout << "                                                    ";
-		for (int j = 0; j < 15; j++) {
+inline void set_cursor_position(int x, int y) {
+	
+    COORD coord = { (SHORT)x, (SHORT)y };
+	
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+} 
 
-			switch (game_map[i][j]) {
+inline void draw_map(int game_map[15][15]) {
+	
+    set_cursor_position(0, 0); 
+    
+    cout << "\n\n\n\n\n\n";
+    
+    for (int i = 0; i < 15; i++) {
+        cout << "                                                    ";
+        
+        for (int j = 0; j < 15; j++) {
+            switch (game_map[i][j]) {
+                case(0): {
+                    cout << "  ";
+                    break;
+                }
+                case(1): {
+                    cout << "██";
+                    break;
+                }
+                case(2): {
+                    cout << "BB";
+                    break;
+                }
+                case(3): {
+                    cout << "$$";
+                    break;
+                }
+                case(4): {
+                    cout << "@@";
+                    break;
+                }
+            }
+        }
 
-			case(0):{
-				cout << "  ";
-				break;
-			}
-			case(1):{
-				cout << "██";
-				break;
-			}
-			case(2): {
-				cout << "BB";
-				break;
-			}
-			case(3): {
-				cout << "$$";
-				break;
-			}
-            case(4): {
-				cout << "@@";
-				break;
-			}
-		    }
-		}
-		if (key == 1) {
-			cout << "    you need 2 keys";
-			key = 0;
-		}
-			cout << endl;
-	}
-	return;
+        if (i == 7 && key == 1) { 
+            cout << "    you need 2 keys";
+        } 
+		else {
+            cout << "                   "; 
+        }
+        
+        cout << endl;
+    }
+    
+    if (key == 1) {
+        key = 0;
+    }
+
+    return;
 }
 
 inline void move(int game_map[15][15], int* i, int* j, bool* game, int* keys, int *pers_HP, int * key) {
