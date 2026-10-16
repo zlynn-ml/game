@@ -2,6 +2,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <windows.h>
+#include <ctime>
+
 
 using namespace std;
 
